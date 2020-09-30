@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# Application path
+APP_PATH="$(dirname "${BASH_SOURCE[0]}")"
+cd "$APP_PATH"
+
+# Executable file
+APP_EXEC="/path/to/exe"
+
+# Steam / IDs
+export SteamAppId="<steamappid>"
+export SteamGameId="<steamappid>"
+
+# Steam / Client path
+export STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.steam/steam"
+
+#External HDD SteamLibrary Path (if you have)
+STEAM_LIBRARY_PATH="/path/to/SteamLibrary"
+
+# Steam / Apps path
+STEAM_APPS_PATH="$STEAM_COMPAT_CLIENT_INSTALL_PATH/steamapps"
+
+# Steam / Compat data path
+export STEAM_COMPAT_DATA_PATH="$STEAM_APPS_PATH/compatdata/$SteamAppId"
+
+# Proton / Path
+PROTON_PATH="$STEAM_APPS_PATH/common/Proton 5.0"
+
+# Proton-GE / Path (if you have)
+PROTON_GE_PATH="/path/to/proton-ge"
+
+# Proton / Executable script
+PROTON_EXEC="$PROTON_PATH/proton"
+
+python "$PROTON_EXEC" run "$APP_EXEC"
